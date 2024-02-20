@@ -50,11 +50,9 @@ async function searchImages() {
       if (page === 1) {
         Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
       }
-
       displayImages(hits);
       loadBtn.style.display = hits.length < totalHits ? "block" : "none";
 
-      
       const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250,
@@ -72,6 +70,7 @@ async function searchImages() {
     Notiflix.Notify.failure("An error occurred while fetching images. Please try again.");
   }
 }
+console.log(searchImages());
 
 function displayImages(images) {
   const imageCards = images.map((image) => `
@@ -102,3 +101,5 @@ function displayImages(images) {
   
   gallery.innerHTML = imageCards.join("");
 }
+
+console.log(displayImages());
